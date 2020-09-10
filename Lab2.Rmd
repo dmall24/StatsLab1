@@ -18,6 +18,7 @@ Plot your results.
 
 
 ```{r}
+
 x <- c(7,4,8,5,4,6,7,1,9,3)
 testingnums <- c(1,2,3,4,5.4,6,7,8,9)
 mean(x)
@@ -60,11 +61,24 @@ var(y)
 Imagine the same instructor taught a morning, afternoon, and evening section of the same course. And, the average scores for each section on a midterm were 85% for the morning, 90% for the afternoon, and 93% for the evening sections. Create a data.frame representing these means for each section. Then, use ggplot2 to plot the means as bar graph. (hint you will need one vector for the class sections, and one vector for the means. Then you can combine them into a data.frame before plotting them)
 
 ```{r}
-meanscore <- c(85,90,93)
-hist(meanscore)
-#ggplot(meanscore, aes(x = classtime, y = score))
-knitr::kable(meanscore)
+sections <- c("morning","afternoon","evening")
+scores <- c(85,90,93)
 
+mydata <- data.frame(sections,scores)
+
+library(ggplot2)
+
+ggplot(mydata, aes(x=sections, y=scores))+
+  geom_bar(stat="identity")
+
+
+#0% didn't understand dataframe
 ```
 
 
+## Question 4
+
+```{r}
+
+
+```
