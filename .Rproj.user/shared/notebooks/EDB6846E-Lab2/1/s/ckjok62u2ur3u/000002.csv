@@ -1,0 +1,4 @@
+"0","whr <- read.table(""open_data/WHR2018.csv"","
+"0","                             sep = "","","
+"0","                             header = TRUE )"
+"0",""

@@ -1,0 +1,32 @@
+{
+    "id": "71027646",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1599767780813.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "expression": "mean_lifex",
+        "caption": "mean_lifex",
+        "totalObservations": "6",
+        "displayedObservations": "6",
+        "variables": "2",
+        "cacheKey": "1E0F6137",
+        "object": "mean_lifex",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=mean_lifex&cache_key=1E0F6137&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7957688064806756898,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1599767780813,
+    "read_only": false,
+    "read_only_alternatives": []
+}
