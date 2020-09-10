@@ -31,19 +31,40 @@ for(i in 1:length((testingnums))) {
 
 sum_sq
 plot(sum_sq)
-# 50%
+# 75% used previous work as notes
 ```
 
 ## Question 2
 Write a custom R function for any one of the following descriptive statistics: median, mode, standard deviation, variance. Demonstrate that it produces the same value as the base R function given some set of numbers.
 
 ```{r}
-y <- c(1,5,6,4,8,2,11,13,5)
+#y <- c(1,5,6,4,8,2,11,13,5)
+#sort_y <- sort(y)
+#L1 <- length(y)/2
+#L2 <- (length(y)/2)+1
 
+#(sort_y[L1]+sort_y[L2])/2
 
-solvemean <-function(){
-  temp <- sum(y)/length(y)
-  return (temp)
+solvevariance <- function(y){
+  sum((y-mean(y))^2)/(length(y)-1)
 }
+y <- c(1,5,6,4,8,2,11,13,5)
+solvevariance(y)
+
+var(y)
+# 25% used previous work as notes
+```
+
+
+## Question 3
+Imagine the same instructor taught a morning, afternoon, and evening section of the same course. And, the average scores for each section on a midterm were 85% for the morning, 90% for the afternoon, and 93% for the evening sections. Create a data.frame representing these means for each section. Then, use ggplot2 to plot the means as bar graph. (hint you will need one vector for the class sections, and one vector for the means. Then you can combine them into a data.frame before plotting them)
+
+```{r}
+meanscore <- c(85,90,93)
+hist(meanscore)
+#ggplot(meanscore, aes(x = classtime, y = score))
+knitr::kable(meanscore)
 
 ```
+
+

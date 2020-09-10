@@ -3,22 +3,23 @@
     "path": "~/PsycStatsClass/StatsLab1/Lab2.Rmd",
     "project_path": "Lab2.Rmd",
     "type": "r_markdown",
-    "hash": "668430173",
+    "hash": "2031584608",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1599748512121.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
-        "cursorPosition": "41,0",
-        "scrollLine": "20"
+        "cursorPosition": "48,34",
+        "scrollLine": "38",
+        "last_setup_crc32": "78535D6Dbb338d19"
     },
     "folds": "",
-    "lastKnownWriteTime": 1599750570,
+    "lastKnownWriteTime": 1599763817,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1599750784262,
+    "last_content_update": 1599763817909,
     "read_only": false,
     "read_only_alternatives": []
 }

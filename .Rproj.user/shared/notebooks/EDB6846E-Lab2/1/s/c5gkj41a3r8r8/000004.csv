@@ -1,0 +1,5 @@
+"0",""
+"0","meanscore <- c(85,90,93)"
+"0","ggplot(meanscore, aes(x = classtime, y = score))"
+"2","Error: `data` must be a data frame, or other object coercible by `fortify()`, not a numeric vector
+"
