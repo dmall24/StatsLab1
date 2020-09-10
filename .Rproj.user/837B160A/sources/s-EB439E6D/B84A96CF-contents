@@ -118,7 +118,24 @@ ggplot(mean_lifex, aes(x = year, y = mean_healthy))+
 ```
 
 
-##
+## Question 6
+Repeat the above, except in addition to calculating the mean for each year, also calculate the standard deviation for “healthy life expectancy at birth” for each year. Then, add error bars to your graph using the +1 and -1 standard deviations from the means for each year
 
+```{r}
 
+mean_lifex <- whr %>%
+  filter(year >= 2010,
+         year <= 2015) %>%
+  group_by(year) %>%
+  summarize(mean_healthy= mean(Healthy.life.expectancy.at.birth, na.rm= TRUE),sd_healthy = sd(Healthy.life.expectancy.at.birth, na.rm= TRUE))
+
+knitr::kable(mean_lifex)
+
+ggplot(mean_lifex, aes(x = year, y = mean_healthy))+
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin = mean_healthy - sd_healthy,
+                    ymax = mean_healthy + sd_healthy),
+                width = .25)
+#25% used previous q as base
+```
 
