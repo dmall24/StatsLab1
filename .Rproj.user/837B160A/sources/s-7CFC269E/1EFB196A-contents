@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
 library(ggplot2)
 ```
 
@@ -15,22 +16,34 @@ Create five samples of 25 observations from a normal distribution with mean 200 
 compute the mean of each sample, and plot the means in a graph using ggplot2
 
 ```{r}
+dataone <- rnorm(125,200,100)
+graphs <- rep(1:5, each=25)
 
-#need dataframe with rep(1:5, each=25)
-quesone <- data.frame(workone = rnorm(1000,200,100),
-                      sample = rep(1:5,each=25))
-ggplot(quesone, aes(x=workone))+geom_histogram()+
-  facet_wrap(~sample)
-#100% used examples to create
+quesone <- data.frame(dataone, graphs)
+meanone <- quesone %>%
+  group_by(graphs)%>%
+  summarize(realmeans = mean(dataone))
+
+ggplot(meanone, aes(x=graphs, y=realmeans))+
+  geom_histogram(stat="identity")
+#50% couldn't spell functions correctly
 ```
 
 ## Question 2
-
-
+additionally calculate the standard deviation of each sample from above.
+use the st devs for error bars, and produce another graph w/ the means along with error bars
 
 ```{r}
+questwo <- data.frame(worktwo = rnorm(125,200,100),
+                      sample = rep(1:5,each=25))
+#meantwo = mean(worktwo)
+#sdtwo = sd(worktwo)
 
-
+ggplot(questwo, aes(x=worktwo))+
+  geom_histogram()+
+# geom_errorbar(aes(ymin=mean(worktwo)-sd(worktwo),
+#                    ymax=mean(worktwo)+sd(worktwo)))
+  facet_wrap(~sample)
 ```
 
 ## fair coin
