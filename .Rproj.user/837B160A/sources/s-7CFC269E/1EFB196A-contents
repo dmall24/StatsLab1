@@ -1,0 +1,83 @@
+---
+title: "Lab3"
+author: "Derek Maldonado"
+date: "9/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+## Question 1
+Create five samples of 25 observations from a normal distribution with mean 200 and sd 100.
+compute the mean of each sample, and plot the means in a graph using ggplot2
+
+```{r}
+
+#need dataframe with rep(1:5, each=25)
+quesone <- data.frame(workone = rnorm(1000,200,100),
+                      sample = rep(1:5,each=25))
+ggplot(quesone, aes(x=workone))+geom_histogram()+
+  facet_wrap(~sample)
+#100% used examples to create
+```
+
+## Question 2
+
+
+
+```{r}
+
+
+```
+
+## fair coin
+
+```{r}
+flip<-c()
+outcome<-c()
+proportion_head<-c()
+proportion_tail<-c()
+
+#run it
+for(i in 1:10000){
+  flip[i]<-i
+  outcome[i]<- sample(x=c(1,0),size=1)
+  proportion_head[i]= sum(outcome)/length(outcome)
+  proportion_tail[i]=1-proportion_head[i]
+}
+
+#dataframe time
+simulater<- data.frame(flip,outcome,proportion_head,proportion_tail)
+
+#plot time
+ggplot(simulater,aes(x=flip,y=proportion_head))+geom_point()+geom_line()+geom_hline(yintercept=0.5, color="red")
+
+```
+
+
+```{r}
+#n<- seq(1000,100000,1000)
+#sample_mean<-c()
+#sample_sd<-c()
+
+#for(i in 1:length(n)){
+#  sim_sample<- rnorm(n[i], mean=100, sd= 50)
+#  sample_mean[i]<- mean(sim_sample)
+#  sample_sd[i]<- sd(sim_sample)
+#}
+
+#sim_data <- data.frame(n,sample_mean, sample_sd)
+
+#ggplot(sim_data, aes(x=n, y=sample_mean))+
+#  geom_point()+
+#  geom_line()+
+#  geom_hline(yintercept=100, color="blue")
+
+#ggplot(sim_data, aes(x=n,y=sample_sd))+
+#  geom_point()+
+#  geom_line()+
+#  geom_hline(yintercept=50,color="yellow")
+```
