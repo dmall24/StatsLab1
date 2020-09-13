@@ -79,7 +79,7 @@ sampledata <- data.frame(sampfor,sampmean)
 ggplot(sampledata, aes(x=sampfor, y=sampmean))+
          geom_point()+
   geom_line()+
-  coord_cartesian(ylim=c(9,11))
+  coord_cartesian(ylim=c(0,20))
        
        
 
@@ -126,36 +126,12 @@ sampledata <- data.frame(i = rep(sampfor,2),
                          est = c(sampsd, sampsdfun),
                          formula= c(rep("N-1",5),rep("N",5)))
 
-ggplot(sampledata, aes(x=sampfor, y=sampmean))+
+ggplot(sampledata, aes(x=i, y=est, color=formula))+
          geom_point()+
   geom_line()+
-  coord_cartesian(ylim=c(9,11))
+  coord_cartesian(ylim=c(0,10))
 
-```
-
-
-## fair coin
-
-```{r}
-#flip<-c()
-#outcome<-c()
-#proportion_head<-c()
-#proportion_tail<-c()
-
-#run it
-#for(i in 1:1000){
-#  flip[i]<-i
-# outcome[i]<- sample(x=c(1,0),size=1)
-#  proportion_head[i]= sum(outcome)/length(outcome)
-#  proportion_tail[i]=1-proportion_head[i]
-#}
-
-#dataframe time
-#simulater<- data.frame(flip,outcome,proportion_head,proportion_tail)
-
-#plot time
-#ggplot(simulater,aes(x=flip,y=proportion_head))+geom_point()+geom_line()+geom_hline(yintercept=0.5, color="red")
-
+#25% tried to alter from previous Q, but made some errors during my attempt
 ```
 
 
