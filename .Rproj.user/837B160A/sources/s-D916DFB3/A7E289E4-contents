@@ -1,0 +1,48 @@
+---
+title: "Lab4"
+author: "Derek Maldonado"
+date: "9/30/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+Estimate the letter occurrence probabilities of all 26 letters in English by measuring a paragraph of English text from wikipedia. (hint use strsplit() to split a paragraph into individual letters
+
+
+```{r}
+samparagraph <- ("Shortly after their arrival in Yharnam, the player finds their first Lamp. They light it, and are transported to a spectral realm called the Hunter's Dream, which acts as both a sanctuary and workshop. The player encounters two entities: Gehrman, an elderly, wheelchair-bound man who provides advice to Hunters like the player; and the Doll, a living life-size doll that assists the player in leveling up and emotionally bonds with the Hunter over the course of the game. Gehrman informs the player that in order to obtain the blood they seek and escape the dream, they must hunt down the various monsters plaguing Yharnam, and halt the source of the plague. As the Hunter delves deeper into the city, they begin to learn its dark secrets, as well as the origin of the plague ravaging it. Long ago, the residents of Yharnam began worshiping ancient, eldritch cosmic beings known as the Great Ones after scholars from the College of Byrgenwerth discovered something referred to as a medium in the ruins of an ancient, highly advanced civilization that Yharnam was built on top of. The Great Ones provided the healing blood Yharnam was famous for, which is also the source of the plague.")
+
+bbletters <- unlist(strsplit(samparagraph,split= ""))
+bblowered <- tolower(bbletters)
+lettercount<-table(bblowered)
+lettercount<-data.frame(lettercount)
+
+library(dplyr)
+bbgraph <-lettercount%>%
+  filter(bblowered %in% letters == TRUE)
+totalbb <- sum(bbgraph$Freq)
+
+bbgraph <- bbgraph %>%
+  mutate(probabilities= Freq/totalbb)
+
+knitr::kable(bbgraph)
+
+#25% got to the part where I lower cased all the letters, couldnt figure out how to remove punctuation
+
+```
+
+## Question 2
+Generate “random” strings of letters that are sampled from a distribution where letter occurrence probability is the same as natural English. Use the probabilities for each letter from this wikipedia article, or use your own estimates from the previous question (2 points).
+
+
+```{r}
+
+#randomsamp <- sample(bbgraph$lower)
+
+```
+
+
