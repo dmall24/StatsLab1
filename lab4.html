@@ -527,7 +527,28 @@ knitr::kable(bbgraph)</code></pre>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
 <p>Generate “random” strings of letters that are sampled from a distribution where letter occurrence probability is the same as natural English. Use the probabilities for each letter from this wikipedia article, or use your own estimates from the previous question (2 points).</p>
-<pre class="r"><code>#randomsamp &lt;- sample(bbgraph$lower)</code></pre>
+<pre class="r"><code>#randomsamp &lt;- sample(bbgraph$bblowered,size=5, replace=TRUE,
+#                     prob= bbgraph$probabilities)
+
+q2let &lt;- sample(bbgraph$bblowered,50*5,replace=TRUE,
+                prob= bbgraph$probabilities)
+
+mystring &lt;- matrix(q2let,ncol=5)
+
+paste(mystring[1,],collapse=&quot;&quot;)</code></pre>
+<pre><code>## [1] &quot;taaht&quot;</code></pre>
+<pre class="r"><code>randomq2 &lt;- c()
+for (i in 1:dim(mystring)[1]){
+  randomq2[i] &lt;- paste(mystring[i,], collapse=&quot;&quot;)
+}
+
+randomq2</code></pre>
+<pre><code>##  [1] &quot;taaht&quot; &quot;ameik&quot; &quot;oeefs&quot; &quot;nacun&quot; &quot;wndfr&quot; &quot;eotoc&quot; &quot;untna&quot; &quot;turrb&quot; &quot;epltu&quot;
+## [10] &quot;scenc&quot; &quot;rahoe&quot; &quot;nenye&quot; &quot;sfaiu&quot; &quot;heitl&quot; &quot;rovep&quot; &quot;lbeoo&quot; &quot;aeeut&quot; &quot;dmril&quot;
+## [19] &quot;ohnns&quot; &quot;ugruc&quot; &quot;tveoa&quot; &quot;oihlg&quot; &quot;eaoah&quot; &quot;teaia&quot; &quot;tmpoe&quot; &quot;nnrdc&quot; &quot;erowo&quot;
+## [28] &quot;yvlea&quot; &quot;fmvie&quot; &quot;oeeda&quot; &quot;iptst&quot; &quot;emzna&quot; &quot;yahas&quot; &quot;lnosb&quot; &quot;fsffi&quot; &quot;uesrw&quot;
+## [37] &quot;sntwr&quot; &quot;tyrth&quot; &quot;inyfr&quot; &quot;wtnne&quot; &quot;tdpdi&quot; &quot;eshfi&quot; &quot;esera&quot; &quot;oaert&quot; &quot;coalh&quot;
+## [46] &quot;elroh&quot; &quot;fdvtl&quot; &quot;ruaao&quot; &quot;errth&quot; &quot;enane&quot;</code></pre>
 </div>
 
 

@@ -41,8 +41,22 @@ Generate “random” strings of letters that are sampled from a distribution wh
 
 ```{r}
 
-#randomsamp <- sample(bbgraph$lower)
+#randomsamp <- sample(bbgraph$bblowered,size=5, replace=TRUE,
+#                     prob= bbgraph$probabilities)
 
+q2let <- sample(bbgraph$bblowered,50*5,replace=TRUE,
+                prob= bbgraph$probabilities)
+
+mystring <- matrix(q2let,ncol=5)
+
+paste(mystring[1,],collapse="")
+
+randomq2 <- c()
+for (i in 1:dim(mystring)[1]){
+  randomq2[i] <- paste(mystring[i,], collapse="")
+}
+
+randomq2
 ```
 
 
