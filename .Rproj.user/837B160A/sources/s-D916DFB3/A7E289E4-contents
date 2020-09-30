@@ -90,7 +90,20 @@ What was the longest run of steps where all steps were positive numbers. For exa
 
 
 ```{r}
+logicstep <- sign(steps)
+sequencing <- c()
+counter <- 0
 
+for(i in 1:length(logicstep)){
+  if(logicstep[i] ==0){
+    sequencing <- c(sequencing,counter)
+    counter <- 0
+  } else {
+    counter <- counter+logicstep[i]
+  }
+}
 
+max(sequencing)
 
+#5% I knew the max part at the end, thats about it
 ```
