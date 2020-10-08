@@ -60,7 +60,12 @@ You randomly sample 25 numbers from a normal distribution with mean = 10 and sta
 Create a sampling distribution of standard deviations for this scenario with at least 10,000 sample standard deviations. Then, calculate the proportion of sample standard deviations that are 15 or less
 
 ```{r}
+q5ans <- replicate(10000, sd(rnorm(100,10,20)))
 
+QFINAL <- length(q5ans[q5ans < 15])/10000
+format(QFINAL, scientific = FALSE)
+hist(q5ans)
 
+#100% pretty straightforward, used internet to fix scientific notation
 ```
 
