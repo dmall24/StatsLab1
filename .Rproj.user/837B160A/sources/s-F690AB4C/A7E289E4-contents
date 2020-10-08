@@ -91,15 +91,22 @@ What was the longest run of steps where all steps were positive numbers. For exa
 
 ```{r}
 logicstep <- sign(steps)
+#sign function turns values into either 1 or -1 based on if its pos or neg
+
 sequencing <- c()
 counter <- 0
 
+#below is creating a sequence between 1 and 10,001 
 for(i in 1:length(logicstep)){
   if(logicstep[i] ==0){
     sequencing <- c(sequencing,counter)
+    # adding another number into sequencing vector, enlarging the vector
+    #only happens when i=1, which is only during the first loop
     counter <- 0
   } else {
     counter <- counter+logicstep[i]
+    #executed every other time, now counter increases or decreases based on
+    #value in logical step which is the 1 or -1 from the logicstep vector
   }
 }
 
