@@ -17,14 +17,45 @@ q1stuff <- data.frame(observe = rnorm(1000000,0,1))
 ans1 <- length(q1stuff$observe[q1stuff$observe > 2.5])/1000000
 sprintf("%1.2f%%", 100*ans1)
 
+# 100% some googling for printing percentage but was straightforward
 ```
 
 ## Question 2
-You can also embed plots, for example:
+If performance on a standardized test was known to follow a normal distribution with mean 100 and standard deviation 10, and 10,000 people took the test, how many people would be expected to achieve a score higher than 3 standard deviations from the mean?
+
+```{r}
+q2stuff <- 1-pnorm(130,100,10)
+print(q2stuff*10000)
+
+# 100% seems simple enough
+```
+
+
+## Question 3
+You randomly sample 25 numbers from a normal distribution with mean = 10 and standard deviation = 20. You obtain a sample mean of 12. You want to know the probability that you could have received a sample mean of 12 or larger.
+
+Create a sampling distribution of the mean for this scenario with at least 10,000 sample means (1 point). Then, calculate the proportion of sample means that are 12 or larger
 
 ```{r}
 
 
 ```
 
+## Question 4
+You randomly sample 100 numbers from a normal distribution with mean = 10 and standard deviation = 20. You obtain a sample mean of 12. You want to know the probability that you could have received a sample mean of 12 or larger.
+Create a sampling distribution of the mean for this scenario with at least 10,000 sample means. Then, calculate the proportion of sample means that are 12 or larger. Is the proportion different from question 3, why?
+
+```{r}
+
+
+```
+
+## Question 5
+You randomly sample 25 numbers from a normal distribution with mean = 10 and standard deviation = 20. You obtain a sample standard deviation of 15. You want to know the probability that you could have received a sample standard deviation of 15 or less.
+Create a sampling distribution of standard deviations for this scenario with at least 10,000 sample standard deviations. Then, calculate the proportion of sample standard deviations that are 15 or less
+
+```{r}
+
+
+```
 

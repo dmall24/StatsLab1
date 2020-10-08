@@ -375,11 +375,16 @@ summary {
 <pre class="r"><code>q1stuff &lt;- data.frame(observe = rnorm(1000000,0,1))
 ans1 &lt;- length(q1stuff$observe[q1stuff$observe &gt; 2.5])/1000000
 sprintf(&quot;%1.2f%%&quot;, 100*ans1)</code></pre>
-<pre><code>## [1] &quot;0.61%&quot;</code></pre>
+<pre><code>## [1] &quot;0.63%&quot;</code></pre>
+<pre class="r"><code># 100% some googling for printing percentage but was straightforward</code></pre>
 </div>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
-<p>You can also embed plots, for example:</p>
+<p>If performance on a standardized test was known to follow a normal distribution with mean 100 and standard deviation 10, and 10,000 people took the test, how many people would be expected to achieve a score higher than 3 standard deviations from the mean?</p>
+<pre class="r"><code>q2stuff &lt;- 1-pnorm(130,100,10)
+print(q2stuff*10000)</code></pre>
+<pre><code>## [1] 13.49898</code></pre>
+<pre class="r"><code># 100% seems simple enough</code></pre>
 </div>
 
 
