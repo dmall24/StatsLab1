@@ -3,7 +3,7 @@
     "path": "~/PsycStatsClass/StatsLab1/Lab5.Rmd",
     "project_path": "Lab5.Rmd",
     "type": "r_markdown",
-    "hash": "4120158124",
+    "hash": "4070065346",
     "contents": "",
     "dirty": false,
     "created": 1602039385216.0,
@@ -11,15 +11,15 @@
     "relative_order": 2,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "42,80",
-        "scrollLine": "35"
+        "cursorPosition": "52,0",
+        "scrollLine": "41"
     },
     "folds": "",
-    "lastKnownWriteTime": 1602141103,
+    "lastKnownWriteTime": 1602141383,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1602141103610,
+    "last_content_update": 1602141383465,
     "read_only": false,
     "read_only_alternatives": []
 }

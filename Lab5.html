@@ -375,7 +375,7 @@ summary {
 <pre class="r"><code>q1stuff &lt;- data.frame(observe = rnorm(1000000,0,1))
 ans1 &lt;- length(q1stuff$observe[q1stuff$observe &gt; 2.5])/1000000
 sprintf(&quot;%1.2f%%&quot;, 100*ans1)</code></pre>
-<pre><code>## [1] &quot;0.61%&quot;</code></pre>
+<pre><code>## [1] &quot;0.62%&quot;</code></pre>
 <pre class="r"><code># 100% some googling for printing percentage but was straightforward</code></pre>
 </div>
 <div id="question-2" class="section level2">
@@ -392,11 +392,17 @@ print(q2stuff*10000)</code></pre>
 <p>Create a sampling distribution of the mean for this scenario with at least 10,000 sample means (1 point). Then, calculate the proportion of sample means that are 12 or larger</p>
 <pre class="r"><code>q3stuff &lt;- replicate(10000, mean(rnorm(25,10,20)))
 length(q3stuff[q3stuff &gt; 12])/10000</code></pre>
-<pre><code>## [1] 0.3023</code></pre>
+<pre><code>## [1] 0.3159</code></pre>
+<pre class="r"><code># 50% had to watch video because I missed a &quot;)&quot; and it changed things to shorten</code></pre>
 </div>
 <div id="question-4" class="section level2">
 <h2>Question 4</h2>
 <p>You randomly sample 100 numbers from a normal distribution with mean = 10 and standard deviation = 20. You obtain a sample mean of 12. You want to know the probability that you could have received a sample mean of 12 or larger. Create a sampling distribution of the mean for this scenario with at least 10,000 sample means. Then, calculate the proportion of sample means that are 12 or larger. Is the proportion different from question 3, why?</p>
+<pre class="r"><code>q4things &lt;- replicate(10000, mean(rnorm(100,10,20)))
+length(q4things[q4things &gt; 12])/10000</code></pre>
+<pre><code>## [1] 0.1595</code></pre>
+<pre class="r"><code>#twice as large as 3, possibly because of the larger n size, therefore the randomness has been reduced
+# 100% due to copying previous question</code></pre>
 </div>
 <div id="question-5" class="section level2">
 <h2>Question 5</h2>

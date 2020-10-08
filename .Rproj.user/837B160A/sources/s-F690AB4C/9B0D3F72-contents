@@ -48,8 +48,11 @@ You randomly sample 100 numbers from a normal distribution with mean = 10 and st
 Create a sampling distribution of the mean for this scenario with at least 10,000 sample means. Then, calculate the proportion of sample means that are 12 or larger. Is the proportion different from question 3, why?
 
 ```{r}
+q4things <- replicate(10000, mean(rnorm(100,10,20)))
+length(q4things[q4things > 12])/10000
 
-
+#twice as large as 3, possibly because of the larger n size, therefore the randomness has been reduced
+# 100% due to copying previous question
 ```
 
 ## Question 5
