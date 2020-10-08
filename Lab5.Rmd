@@ -37,8 +37,10 @@ You randomly sample 25 numbers from a normal distribution with mean = 10 and sta
 Create a sampling distribution of the mean for this scenario with at least 10,000 sample means (1 point). Then, calculate the proportion of sample means that are 12 or larger
 
 ```{r}
+q3stuff <- replicate(10000, mean(rnorm(25,10,20)))
+length(q3stuff[q3stuff > 12])/10000
 
-
+# 50% had to watch video because I missed a ")" and it changed things to shorten
 ```
 
 ## Question 4
