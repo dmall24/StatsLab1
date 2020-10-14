@@ -57,7 +57,6 @@ randotest <- function(a,b,sampling=1000){
   outputq1 <- list(mean_of_a = meanfora,
                   mean_of_b = meanforb,
                   difference = diffinmeans,
-                  randomization = mean_differences,
                   plot = plotting,
                   pvalue = p_value)
   return(outputq1)
@@ -70,16 +69,26 @@ randotest(group1,group2,1000)
 
 ## Test of Function
 
-
+```{r}
 the_data <- read.csv("open_data/SchroederEpley2015data.csv", header = TRUE)
+
+#was unable to use data, so I had to alter and add a column to data
 
 group0 <- the_data %>%
   filter(CONDITION == 0) %>%
   select(Intellect_Rating)
+  
+group0 <- group0$Intellect_Rating
 
+group1 <- the_data %>%
+  filter(CONDITION == 1) %>%
+  select(Intellect_Rating)
 
-randotest()
+group1 <- group1$Intellect_Rating
+
+randotest(group0,group1,1000)
 
 ```
 
 
+I took out the printing/returning of randomization 
