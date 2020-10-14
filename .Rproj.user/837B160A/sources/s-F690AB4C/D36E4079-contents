@@ -1,0 +1,85 @@
+---
+title: "Lab 6"
+author: "Derek Maldonado"
+date: "10/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+Write a function that conducts a randomization test for the mean difference between two groups, and show that it works. Specifically, using your function, conduct a randomization test on the same data we used in the above example from lab. Report the results and briefly discuss what the results of the randomization tell you. (6 points). Extra: if the observed mean difference in the experiment was found to be .5, what would you have concluded from the randomization test?
+
+Inputs: the inputs should include a vector for group 1, and vector for group 2, and the number of permutations/re-samplings of the data to create
+
+Outputs: 
+output each group mean, and the difference between group means
+output a histogram of the sampling distribution of the possible mean differences produced by the randomization process
+output the probability or odds of obtaining the observed mean difference or larger.
+
+Optional:
+include the ability to calculate the probability of obtaining any mean difference or larger
+deal with negative difference scores appropriately
+add one or two-tailed test options
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+group1 <- c(10,12,14,16,18,20)
+group2 <- c(sample(10:20,6))
+
+randotest <- function(a,b,sampling=1000){
+  meanfora <- mean(a)
+  meanforb <- mean(b)
+  diffinmeans <- meanfora - meanforb
+  
+  means <- c(a,b)
+  
+  mean_differences <- c()
+  for(i in 1:sampling){
+    resample <- sample(means)
+    newamean <- mean(resample[1:length(a)])
+    newbmean <- mean(resample[(length(a)+1):length(means)])
+    mean_differences[i] <- newamean-newbmean
+  }
+  
+  plotting <- qplot(mean_differences)+
+  geom_histogram(color="orange")+
+  geom_vline(xintercept=diffinmeans, color ="red")+
+  theme_classic()
+  
+  p_value <- length(mean_differences[mean_differences >= diffinmeans])/length(sampling)
+ 
+  
+  outputq1 <- list(mean_of_a = meanfora,
+                  mean_of_b = meanforb,
+                  difference = diffinmeans,
+                  randomization = mean_differences,
+                  plot = plotting,
+                  pvalue = p_value)
+  return(outputq1)
+}
+
+randotest(group1,group2,1000)
+
+```
+
+
+## Test of Function
+
+
+the_data <- read.csv("open_data/SchroederEpley2015data.csv", header = TRUE)
+
+group0 <- the_data %>%
+  filter(CONDITION == 0) %>%
+  select(Intellect_Rating)
+
+
+randotest()
+
+```
+
+
