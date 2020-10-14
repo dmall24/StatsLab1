@@ -91,4 +91,6 @@ randotest(group0,group1,1000)
 ```
 
 
-I took out the printing/returning of randomization 
+I took out the printing/returning of randomization (the 1000 lines) because it was tough on my computer and looked ugly.
+
+The results of the randomization test tell me it is not likely chance was involved with the comparison between groups 0 and 1 and it was more likely this experiment did not disprove whatever hypothesis they set out to test.
