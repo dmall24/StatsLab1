@@ -15,7 +15,7 @@ A test-taker answered 50 true/false questions and received a score of 60% correc
 
 ```{r}
 #60% correct test answers = 30/50 questions correct
-q1test <- binom.test(30,50,0.5)
+q1test <- binom.test(30,50,0.5,"g")
 
 q1test$p.value
 
@@ -29,7 +29,31 @@ An examiner wants to make a TRUE/FALSE test, but is still deciding how many ques
 
 
 ```{r}
+#n will equal number of tests
+n=700
+q2test <- binom.test(x=(0.55*n),n,0.5,"g")
 
+q2test$p.value
+
+# 50% tried to create a for loop to give best case answer, but couldn't get it working
+```
+A good, if excessive, number would be `r n` because it gives a p-value of `r q2test$p.value` falling lower than 0.05
+
+
+
+# Question 3
+A test has 5 TRUE/FALSE questions (each with one right answer) and 5 multiple choice questions with four choices each (each with only one right answer).
+
+create a sampling distribution or probability distribution to illustrate how a random chance process could perform on this test.
+
+What is the probability that randomly guessing on each question could allow a person to receive 75% or greater on this test?
+
+
+```{r}
+
+rbinom(n= rep(1,10),1,prob = c(0.5,0.5,0.5,0.5,0.5,0.25,0.25,0.25,0.25,0.25))
+
+q3test <- replicate(10000,rbinom(n= rep(1,10),1,prob = c(0.5,0.5,0.5,0.5,0.5,0.25,0.25,0.25,0.25,0.25)))
 
 
 ```

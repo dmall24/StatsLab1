@@ -1,0 +1,4 @@
+"0","#n will equal number of tests"
+"0","n=700"
+"0","q2test <- binom.test(x=(0.55*n),n,0.5,""g"")"
+"0","# 50% tried to create a for loop to give best case answer, but couldn't get it working"

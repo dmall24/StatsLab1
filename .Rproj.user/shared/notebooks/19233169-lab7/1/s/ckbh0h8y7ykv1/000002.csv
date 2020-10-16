@@ -1,0 +1,8 @@
+"0","#60% correct test answers = 30/50 questions correct"
+"0","q1test <- binom.test(30,50,0.5,""g"")"
+"0","q1test$p.value"
+"1","[1]"
+"1"," 0.1013194"
+"1","
+"
+"0","#100% on own"
