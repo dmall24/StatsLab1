@@ -1,0 +1,37 @@
+---
+title: "Lab7"
+author: "Derek Maldonado"
+date: "10/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+A test-taker answered 50 true/false questions and received a score of 60% correct. Report the results of a binomial test and explain whether you think the test-score could be produced by the test-taker randomly guessing on each question
+
+
+```{r}
+#60% correct test answers = 30/50 questions correct
+q1test <- binom.test(30,50,0.5)
+
+q1test$p.value
+
+#100% on own
+```
+The results of the test give a p-value of `r q1test$p.value` meaning there is a smaller chance but we cannot reject the null hypothesis that this could not be produced by random guessing
+
+
+## Question 2
+An examiner wants to make a TRUE/FALSE test, but is still deciding how many questions they will include. They want to make sure that it would be very difficult to simply randomly guess and be able to score any higher than 55% percent. How many questions would the examiner need to use to be confident that scores of 55% or higher were not produced by chance?
+
+
+```{r}
+
+
+
+```
+
+

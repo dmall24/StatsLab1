@@ -1,0 +1,30 @@
+---
+title: "Lab7"
+author: "Derek Maldonado"
+date: "10/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+
+
+```{r}
+
+
+```
+
+## Question 2
+
+
+
+```{r}
+
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
