@@ -1,0 +1,59 @@
+---
+title: "Lab8"
+author: "Derek Maldonado"
+date: "10/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+Write a function to convert a vector of raw-scores into z-scores. The function should have inputs for the vector, the mean and sd of the normal distribution, and should return a vector of zscores. (1 point). Also, demonstrate that the function works correctly (1 point). How you make the demonstration is up to you.
+Advanced: 
+Have an option so that the function will convert the raw scores to zscores in one of two ways:
+using user provided mean and standard deviation
+using the calculated mean and standard deviation from the raw scores
+
+
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+r2z <- function(scores, mu, sd){
+  zscore <- (scores-mu)/sd
+  return(zscore)
+}
+
+scores <- c(1:10)
+mu <- 3
+sd <- 1
+r2z(scores,mu,sd)
+
+
+#100% straightforward enough
+```
+
+## Including Plots
+
+
+
+```{r}
+ztest <- function(scores, mu, sd){
+  xbar <- mean(scores)
+  zscore <- ((xbar-mu)/sd)
+  
+}
+
+
+scores <- c()
+
+
+```
+
+
+
+
+
