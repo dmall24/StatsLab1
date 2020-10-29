@@ -205,22 +205,31 @@ r2z &lt;- function(scores, mu, sd){
 }
 
 scores &lt;- c(1:10)
-mu &lt;- 3
-sd &lt;- 1
+mu &lt;- 4
+sd &lt;- 2
 r2z(scores,mu,sd)</code></pre>
-<pre><code>##  [1] -2 -1  0  1  2  3  4  5  6  7</code></pre>
+<pre><code>##  [1] -1.5 -1.0 -0.5  0.0  0.5  1.0  1.5  2.0  2.5  3.0</code></pre>
 <pre class="r"><code>#100% straightforward enough</code></pre>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<pre class="r"><code>ztest &lt;- function(scores, mu, sd){
-  xbar &lt;- mean(scores)
-  zscore &lt;- ((xbar-mu)/sd)
-  
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
+<p>Base R does not have a function for a z-test. Write a function to accomplish a one-sample z-test. Remember, a one-sample z test is used to compare the probability of obtaining the sample mean (or larger or smaller) if it came from a known normal distribution</p>
+<p>Use your z-test function to conduct a test of the following. A sample of 25 scores is taken. The mean of the sample is 50. The sample is assumed to have been taken from a normal distribution with mean 40 and standard deviation 7. Report a one-tailed z-test, examining the probability of obtaining a sample of greater than 50 in this situation. Report the results, and give a brief sentence explaining the result and the inference you make</p>
+<pre class="r"><code>ztest &lt;- function(scores_t, size_t, mu_t, sd_t){
+  xbar &lt;- scores_t
+  sterror &lt;- (sd_t)/sqrt(size_t)
+  zscore_t &lt;- ((xbar-mu_t)/sterror)
+#  pnorm(zscore_t,0,1, lower.tail = FALSE)
+  return(zscore_t)
 }
 
-
-scores &lt;- c()</code></pre>
+ztest(50,25,40,7)</code></pre>
+<pre><code>## [1] 7.142857</code></pre>
+<pre class="r"><code>zscoreans &lt;- (50-40)/((7)/sqrt(25))
+pnorm(zscoreans,0,1, lower.tail = FALSE)</code></pre>
+<pre><code>## [1] 4.570531e-13</code></pre>
+<pre class="r"><code>#100%</code></pre>
+<p>Based on the result acquired, there is a 4.57e-11% chance of acquiring a value of 50 or higher from a sample of 25 scores by way of chance, otherwise meaning it is virtually impossible for this situation to occur by chance. Therefore we can reject the null in this situation, whatever the null may be.</p>
 </div>
 
 

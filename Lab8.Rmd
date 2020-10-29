@@ -28,32 +28,38 @@ r2z <- function(scores, mu, sd){
 }
 
 scores <- c(1:10)
-mu <- 3
-sd <- 1
+mu <- 4
+sd <- 2
 r2z(scores,mu,sd)
 
 
 #100% straightforward enough
 ```
 
-## Including Plots
+## Question 2
+Base R does not have a function for a z-test. Write a function to accomplish a one-sample z-test. Remember, a one-sample z test is used to compare the probability of obtaining the sample mean (or larger or smaller) if it came from a known normal distribution
 
+Use your z-test function to conduct a test of the following. A sample of 25 scores is taken. The mean of the sample is 50. The sample is assumed to have been taken from a normal distribution with mean 40 and standard deviation 7. Report a one-tailed z-test, examining the probability of obtaining a sample of greater than 50 in this situation. Report the results, and give a brief sentence explaining the result and the inference you make 
 
 
 ```{r}
-ztest <- function(scores, mu, sd){
-  xbar <- mean(scores)
-  zscore <- ((xbar-mu)/sd)
-  
+ztest <- function(scores_t, size_t, mu_t, sd_t){
+  xbar <- scores_t
+  sterror <- (sd_t)/sqrt(size_t)
+  zscore_t <- ((xbar-mu_t)/sterror)
+#  pnorm(zscore_t,0,1, lower.tail = FALSE)
+  return(zscore_t)
 }
 
+ztest(50,25,40,7)
 
-scores <- c()
+zscoreans <- (50-40)/((7)/sqrt(25))
+pnorm(zscoreans,0,1, lower.tail = FALSE)
 
-
+#100%
 ```
 
-
+Based on the result acquired, there is a 4.57e-11% chance of acquiring a value of 50 or higher from a sample of 25 scores by way of chance, otherwise meaning it is virtually impossible for this situation to occur by chance. Therefore we can reject the null in this situation, whatever the null may be.
 
 
 
