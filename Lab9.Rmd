@@ -1,0 +1,59 @@
+---
+title: "Lab9"
+author: "Derek Maldonado"
+date: "November 11, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+The following paper links to open data, and describes a design where two chi-square tests are performed for Experiment 1.
+Obtain the data from the online repository, show your code for loading it into R, then conduct the same tests reported in Experiment 1 that the authors conducted. These include one binomial test, and two chi-square tests. Briefly report your re-analysis, and discuss whether you obtained the same values as the authors did
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+data1 <- read.csv(file="lab9data/infantchoosingdata.csv")
+
+
+ex1data <- data1 %>%
+  filter(ExperimentNumber == "1")
+
+sumofchoices <- sum(ex1data$Infant.Chose.C)
+amountofchoices <- length(ex1data$Infant.Chose.C)
+(binomial1 <- pbinom(q = amountofchoices - sumofchoices,
+                      size = amountofchoices, 
+                      prob = .5, 
+                      lower.tail = TRUE)*2)
+
+gender_choice_table <- ex1data %>%
+  group_by(Gender, Infant.Chose.C) %>%
+  summarize(counts = n()) %>%
+  pivot_wider(names_from = c(Gender),
+              values_from = counts)
+
+gender_choice_table <- gender_choice_table[,2:3]
+(gender_Xsq <- chisq.test(gender_choice_table))  
+
+uncorrected_Xsq <- sum((gender_Xsq$observed-gender_Xsq$expected)^2/gender_Xsq$expected)
+gender_Xsq_unc <- pchisq(uncorrected_Xsq,1,lower.tail = FALSE)
+
+age_table <- ex1data %>%
+  group_by(AgeMonths, Infant.Chose.C) %>%
+  summarize(counts = n()) %>%
+  pivot_wider(names_from = c(AgeMonths),
+              values_from = counts)
+age_table[is.na(age_table)] <- 0
+age_table <- as.matrix(age_table[,2:21])
+(age_xs <- chisq.test(age_table))
+
+#20% I constantly struggle with the filtering (%>%) and specifying ($) of the data i'm working with. I need to get the hang of that.
+
+```
+I did the exact same experiment as the paper's authors and received the same scores, even if one had errors on their part. 
+
