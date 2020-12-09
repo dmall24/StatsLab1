@@ -18,7 +18,7 @@ Obtain the data from the online repository, show your code for loading it into R
 library(dplyr)
 library(tidyr)
 
-data1 <- read.csv(file="lab9data/infantchoosingdata.csv")
+data1 <- read.csv(file="lab10data/standbystroop.csv")
 
 
 ex1data <- data1 %>%
