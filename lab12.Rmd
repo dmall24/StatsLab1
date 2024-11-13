@@ -21,7 +21,6 @@ ggplot(q1data, aes(x=X, y=Y))+
   geom_point()+
   geom_smooth(method='lm', se=FALSE)
 
-
 ```
 
 # Response
